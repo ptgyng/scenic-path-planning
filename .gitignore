@@ -1,0 +1,45 @@
+# ===== 编译产物 =====
+*.exe
+*.obj
+*.o
+*.out
+*.stackdump
+
+# ===== Visual Studio / MSVC =====
+Debug/
+Release/
+*.pdb
+*.ilk
+*.exp
+*.lib
+
+# ===== Python 缓存 =====
+*.pyc
+__pycache__/
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+
+# ===== 系统文件 =====
+Thumbs.db
+.DS_Store
+
+# ===== 旧版本单文件代码（已重构为多文件结构） =====
+scenic_path_planning.c
+scenic_path_planning.cpp
+scenic_path_planning.py
+test_system.cpp
+test_system.py
+test_output*.txt
+
+# ===== Office 文档（不在代码仓库中追踪） =====
+*.doc
+*.docx
+*.pdf
+
+# ===== 测试输入/输出 =====
+test_*.txt
+input_*.txt
+scenic_test.dat
