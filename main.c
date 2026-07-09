@@ -1,5 +1,5 @@
-/* main.c — 景区路径规划系统主程序
- * 包含: 图创建, 邻接矩阵展示, DFS导游线路, 回路检测, Dijkstra最短路径
+/* main.c — 景区路径规划系统 v1.0
+ * 模块: 图创建, 邻接矩阵, DFS导游, 回路检测, Dijkstra最短路径
  */
 #include <stdio.h>
 #include "graph.h"
