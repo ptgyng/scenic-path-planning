@@ -16,6 +16,8 @@ int main(void)
     DetectCycle(&G);
     printf("==== Dijkstra 最短路径: 大门 → 观月阁 ====\n");
     ShowShortestPath(&G);
+    printf("==== Floyd 全源最短路表 ====\n");
+    ShowFloyd(&G);
     DestroyGraph(&G);
     return 0;
 }
