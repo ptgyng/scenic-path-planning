@@ -1,19 +1,28 @@
-/* =====================================================================
-   global.h — 全局常量定义
-   作用: 集中管理 INF 无穷大、最大顶点数等项目级常量
-   注意: 本文件使用 #ifndef 保护，避免被多次 include 造成重复定义
-   ===================================================================== */
-
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-/* ---- 无穷大: 表示两顶点间无直接边 ---- */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define MAXNUM 40
 #define INF 32767
 
-/* ---- 景区景点最大顶点数 (预先分配容量用) ---- */
-#define MAX_VERTEX 100
+typedef struct stCNode {
+    int index;
+    struct stCNode *next;
+    int length;
+} CNode;
 
-/* ---- 单个景点名称的最大字符数 ---- */
-#define MAX_NAME 64
+typedef struct stHNode {
+    char data[10];
+    CNode *first;
+} HNode, RoadList[MAXNUM];
 
-#endif /* GLOBAL_H */
+typedef struct stGraph {
+    RoadList roadlist;
+    int nodenum;
+    int edgenum;
+} ALGraph;
+
+#endif

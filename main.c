@@ -1,23 +1,55 @@
-/* main.c — 景区路径规划系统 v1.0 (交互式菜单版)
- * 模块: 图创建, 邻接矩阵, DFS导游, 回路检测, Dijkstra最短路径
- */
-#include <stdio.h>
-#include "graph.h"
+#define _CRT_SECURE_NO_WARNINGS 1
 
-int main(void)
+#include "main.h"
+
+int main()
 {
-    ALGraph G = {0};
-    printf("==== 景区路径规划系统 ====\n");
-    printf("正在创建景区图 (8顶点 9边)...\n");
-    CreateGraph(&G);
-    printf("图创建完成, 顶点数: %d, 边数: %d\n", G.vertex_count, G.edge_count);
-    ShowGraph(&G);
-    ShowTourRoute(&G);
-    DetectCycle(&G);
-    printf("==== Dijkstra 最短路径: 大门 → 观月阁 ====\n");
-    ShowShortestPath(&G);
-    printf("==== Floyd 全源最短路表 ====\n");
-    ShowFloyd(&G);
-    DestroyGraph(&G);
+    ALGraph graph;
+    ALGraph guideGraph;
+    double shortPath[MAXNUM][MAXNUM];
+    int path[MAXNUM][MAXNUM];
+    int opt = 0;
+    int flag = 1;
+
+    showMenu();
+    while (1)
+    {
+        printf("请输入您的选择:\n");
+        scanf("%d", &opt);
+        while (flag && opt != 0 && opt != 1)
+        {
+            printf("输入错误，请重新选择：\n");
+            scanf("%d", &opt);
+        }
+        flag = 0;
+        while (opt < 0 || opt > 5)
+        {
+            printf("输入错误，请重新选择：\n");
+            scanf("%d", &opt);
+        }
+        switch (opt)
+        {
+        case 0:
+            return 0;
+        case 1:
+            createGraph(&graph);
+            break;
+        case 2:
+            printGraph(&graph);
+            break;
+        case 3:
+            createGuideGraph(&graph, &guideGraph);
+            break;
+        case 4:
+            loopTest(guideGraph);
+            break;
+        case 5:
+            minDistance(graph, path, shortPath);
+            break;
+        default:
+            break;
+        }
+    }
+
     return 0;
 }
